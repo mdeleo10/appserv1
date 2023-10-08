@@ -49,10 +49,15 @@ else
      }
 
 echo "<br>";
-
-
 echo "<br>";
-echo "What is my outbound IP address connecting with...";
+echo "What is my outbound IP address connecting with to the INTRAnet...";
+echo "<br>";
+$exec_str="curl http://192.168.0.4 | grep 'Your IP address' ";
+//echo "Your exec_str is ", $exec_str, "<br>";
+$host_name = exec($exec_str,$test);
+echo $host_name;
+echo "<br>";
+echo "What is my outbound IP address connecting with to the INTERNET...";
 echo "<br>";
 $exec_str="curl https://mdeleo.com | grep 'Your IP address' ";
 //echo "Your exec_str is ", $exec_str, "<br>";
