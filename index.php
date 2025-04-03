@@ -37,12 +37,13 @@ echo "Your IP address is ", $ip_address, "<br>";
 echo 
 $exec_str = "echo $ip_address | awk '{match($0,/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/); ip = substr($0,RSTART,RLENGTH); print ip}'";
 $ip_address = exec($exec_str,$test);
-echo "Your IP address is ", $ip_address, "<br>";
+echo "Your IPv4 address is ", $ip_address, "<br>";
 
 //Reset for IPv6 testing
 $ip_address=$ip_address_final
-$exec_str = "echo $ip_address | awk '{match$0,((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){1,3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)); ip = substr($0,RSTART,RLENGTH); print ip}'";$ip_address = exec($exec_str,$test);
-echo "Your IP address is ", $ip_address, "<br>";
+$exec_str = "echo $ip_address | awk '{match$0,(?i)(?:[\da-f]{0,4}:){2,7}(?:(?<ipv4>(?:(?:25[0-5]|2[0-4]\d|1?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|1?\d\d?))|[\da-f]{0,4}|:); ip = substr($0,RSTART,RLENGTH); print ip}'";
+$ip_address = exec($exec_str,$test);
+echo "Your IPv6 address is ", $ip_address, "<br>";
 
 
 echo preg_match('/(?:(?:25[0-5]|2[0-4]\d|1?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|1?\d\d?)/', $ip_address);
