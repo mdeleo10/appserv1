@@ -35,7 +35,7 @@ echo "Your IP address is ", $ip_address, "<br>";
 //Fix for IPv4 test
 $exec_str = "echo $ip_address | awk '{match($0,/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/); ip = substr($0,RSTART,RLENGTH); print ip}'";
 $ip_address = exec($exec_str,$test);
-//echo "Your IP address is ", $ip_address, "<br>";
+echo "Your IP address is ", $ip_address, "<br>";
 
 
 echo preg_match('/(?:(?:25[0-5]|2[0-4]\d|1?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|1?\d\d?)/', $ip_address);
