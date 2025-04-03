@@ -34,6 +34,7 @@ echo "Your IP address is ", $ip_address, "<br>";
 $exec_str = "echo $ip_address | awk -F ':' '{print $1}'";
 $ip_address = exec($exec_str,$test);
 //echo "Your IP address is ", $ip_address, "<br>";
+echo "preg_match('/(?:(?:25[0-5]|2[0-4]\d|1?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|1?\d\d?)/', $ip_address);"
 
 $exec_str = "host $ip_address 1.1.1.1| awk '{printf  $5 }' ";
 //echo "Your exec_str is ", $exec_str, "<br>";
