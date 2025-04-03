@@ -26,6 +26,7 @@ else
     $ip_address = $_SERVER['REMOTE_ADDR'];
   }
 
+$ip_address_final=$ip_address
 echo "This site supports IPv4 and IPv6 connectivity.<br>";
 echo "Let us see if you are connecting with an IPv4 or IPv6 address..<br>";
 echo "Your IP address is ", $ip_address, "<br>";
@@ -33,8 +34,14 @@ echo "Your IP address is ", $ip_address, "<br>";
 //Fix IP Address
 // $exec_str = "echo $ip_address | awk -F ':' '{print $1}'";
 //Fix for IPv4 test
+echo 
 $exec_str = "echo $ip_address | awk '{match($0,/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/); ip = substr($0,RSTART,RLENGTH); print ip}'";
 $ip_address = exec($exec_str,$test);
+echo "Your IP address is ", $ip_address, "<br>";
+
+//Reset for IPv6 testing
+$ip_address=$ip_address_final
+$exec_str = "echo $ip_address | awk '{match$0,((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){1,3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)); ip = substr($0,RSTART,RLENGTH); print ip}'";$ip_address = exec($exec_str,$test);
 echo "Your IP address is ", $ip_address, "<br>";
 
 
