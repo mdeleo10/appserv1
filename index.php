@@ -26,7 +26,7 @@ else
     $ip_address = $_SERVER['REMOTE_ADDR'];
   }
 
-$ip_address_final=$ip_address
+$ip_address_final = $ip_address
 echo "This site supports IPv4 and IPv6 connectivity.<br>";
 echo "Let us see if you are connecting with an IPv4 or IPv6 address..<br>";
 echo "Your IP address is ", $ip_address, "<br>";
