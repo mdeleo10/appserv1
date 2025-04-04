@@ -63,7 +63,7 @@ $host_name = exec($exec_str,$test);
 
 if ($host_name == "3(NXDOMAIN)")
    {
-   echo "Your hostname is in reverse DNS lookup, unknown. Error 3(NXDOMAIN) <br>";
+   echo "Your hostname is not in the reverse DNS lookup, unknown. Error 3(NXDOMAIN) <br>";
    }
 else 
    {
