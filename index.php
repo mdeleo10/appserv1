@@ -41,10 +41,11 @@ echo "Your IPv4 address is ", $ip_address, "<br>";
 
 //Reset for IPv6 testing
 $ip_address = $ip_address_final;
+$exec_str = "echo $ip_address | awk '{match($0,\[(.*?)\]); ip = substr($0,RSTART,RLENGTH); print ip}'";
 //$exec_str = "echo $ip_address | awk '{match$0,(?i)(?:[\da-f]{0,4}:){2,7}(?:(?<ipv4>(?:(?:25[0-5]|2[0-4]\d|1?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|1?\d\d?))|[\da-f]{0,4}|:); ip = substr($0,RSTART,RLENGTH); print ip}'";
 //$ip_address = exec($exec_str,$test);
-$pattern = "/(?i)(?:[\da-f]{0,4}:){2,7}(?:(?<ipv4>(?:(?:25[0-5]|2[0-4]\d|1?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|1?\d\d?))|[\da-f]{0,4}|:)/i";
-echo preg_match($pattern, $ip_address);
+//$pattern = "/(?i)(?:[\da-f]{0,4}:){2,7}(?:(?<ipv4>(?:(?:25[0-5]|2[0-4]\d|1?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|1?\d\d?))|[\da-f]{0,4}|:)/i";
+//echo preg_match($pattern, $ip_address);
 echo "Your IPv6 address is ", $ip_address, "<br>";
 
 
