@@ -43,6 +43,8 @@ echo "Let us see if you are connecting with an IPv4 or IPv6 address..<br>";
 $ip_address = $ip_address_final;
 $exec_str = "echo $ip_address | awk -F'[][]' '{print $2}'";
 $ip_address = exec($exec_str,$test);
+
+// If IP_ADDRESS has square brackets it is an IPv6 valid address, no need to check type
 if (!empty($ip_address))
     {
 echo "Your IPv6 address is ", $ip_address, "<br>";
