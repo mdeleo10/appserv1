@@ -60,7 +60,16 @@ else
 $exec_str = "host $ip_address 1.1.1.1| awk '{printf  $5 }' ";
 //echo "Your exec_str is ", $exec_str, "<br>";
 $host_name = exec($exec_str,$test);
-echo "Your hostname is ", $host_name, "<br>";
+
+if ($host_name == "3(NXDOMAIN)")
+   {
+   echo "Your hostname is in reverse DNS lookup, unknown. Error 3(NXDOMAIN) <br>";
+   }
+else 
+   {
+   echo "Your hostname is ", $host_name, "<br>";
+   }
+
 if (strpos($ip_address,':') == true)
      {
      echo "Congratuations, you are IPv6 enabled to this site. <br>";
