@@ -29,7 +29,7 @@ else
 $ip_address_final = $ip_address;
 echo "This site supports IPv4 and IPv6 connectivity.<br>";
 echo "Let us see if you are connecting with an IPv4 or IPv6 address..<br>";
-echo "Your IP address is ", $ip_address, "<br>";
+//echo "Your IP address is ", $ip_address, "<br>";
 
 //Fix IP Address
 // $exec_str = "echo $ip_address | awk -F ':' '{print $1}'";
@@ -43,7 +43,7 @@ echo "Your IP address is ", $ip_address, "<br>";
 $ip_address = $ip_address_final;
 $exec_str = "echo $ip_address | awk -F'[][]' '{print $2}'";
 $ip_address = exec($exec_str,$test);
-if (!empty($ip_address)
+if (!empty($ip_address))
     {
 echo "Your IPv6 address is ", $ip_address, "<br>";
     }
